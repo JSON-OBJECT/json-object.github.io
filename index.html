@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>JSON-OBJECT Software Engineering Blog</title>
+  </head>
+  <body>
+
+    <h1>Contact</h1>
+    <ul>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/taehyeong-lee-951810190/">https://www.linkedin.com/in/taehyeong-lee-951810190/</a></li>
+        <li>Email: jsonobject@gmail.com</li>
+        <li>Seoul, South Korea</li>
+    </ul>
+
+    <h1><a href="https://json-object.github.io/toc/">TOC</a></h1>
+
+    <h1>Recent Posts</h1>
+      <ul>
+        {% for post in paginator.posts %}
+        <li>
+          <h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h2>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+          <p>{{ post.content | strip_html | truncatewords:50 }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">
+      Previous
+    </a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">
+    Page: {{ paginator.page }} of {{ paginator.total_pages }}
+  </span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
+
+  </body>
+</html>

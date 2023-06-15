@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://json-object.github.io/sitemap.xml
